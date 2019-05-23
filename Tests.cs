@@ -6,7 +6,7 @@ using Xunit;
 
 namespace testproject
 {
-  public class UnitTest1
+  public class Tests
   {
     [Fact]
     public void TestRunnerWorks()
@@ -93,7 +93,7 @@ namespace testproject
     [Fact]
     public void cubeAllTest()
     {
-      Assert.Equal(new List<int>{ 8, 27, 64, 125}, Page1.cubeAll(new List<int>{1, 2, 3, 4, 5}));
+      Assert.Equal(new List<int>{ 1,8, 27, 64, 125}, Page1.cubeAll(new List<int>{1, 2, 3, 4, 5}));
     }
 
     [Fact]
@@ -151,8 +151,9 @@ namespace testproject
     public void firstNFibonacciNumbersTest()
     {
       void assertFirstNFib(int n, IEnumerable<int> expected) {
-        var actual = Page2.firstNFibonacciNumbers(n);
-        Assert.True(actual == expected, $"The first {n} fib are {expected}; But you had {actual}");
+        var actual = Page2.firstNFibonacciNumbers(n).ToArray();
+        Assert.Equal(expected, actual);
+        //Assert.True(actual == expected, $"The first {n} fib are {expected}; But you had {actual}");
       }
       assertFirstNFib(3, new []{0, 1, 1});
       assertFirstNFib(6, new []{ 0, 1, 1, 2, 3, 5});
@@ -200,7 +201,7 @@ namespace testproject
     {
       var source1 = Enumerable.Range(10, 10000);
       var actual = Page2.parallelSum(source1);
-      var expected = 49994955;
+      var expected = 50095000;
       Assert.True(actual == expected, $"expected {expected} but got {actual}");
     }
 
@@ -209,7 +210,7 @@ namespace testproject
     {
       IEnumerable<String> stringToStream(string text, int chunkSize)
       {
-        if (text == null || text.Length == 0)
+        if (string.IsNullOrWhiteSpace(text))
         {
             yield break;
         }
