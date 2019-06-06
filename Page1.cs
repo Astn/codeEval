@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace testproject
 {
@@ -88,7 +90,7 @@ namespace testproject
             throw new System.NotImplementedException();
         }
 
-        // product the product of every x with it's y in the xs and ys
+        // produce the product of every x with it's y in the xs and ys
         public static IEnumerable<int> productOfStreams(IEnumerable<int> xs, IEnumerable<int> ys)
         {
             throw new System.NotImplementedException();
