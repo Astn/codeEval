@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace testproject
 {
-    public static class Page1
+    public static class Warmup
     {
         /// <summary>
         /// Returns the greeting message "Hello World!".

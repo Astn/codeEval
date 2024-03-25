@@ -6,7 +6,7 @@ using System.Text;
 
 namespace testproject
 {
-    public static class Page2
+    public static class CodeEval1
     {
         /// <summary>
         /// Generates an infinite sequence of Fibonacci numbers starting from specified initial values.
