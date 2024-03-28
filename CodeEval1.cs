@@ -17,7 +17,7 @@ namespace testproject
         /// <returns>An infinite sequence of Fibonacci numbers as <see cref="IEnumerable{int}"/>.</returns>
         public static IEnumerable<int> allFib(int f1, int f2)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace testproject
         /// <returns>A sequence of the first N Fibonacci numbers as <see cref="IEnumerable{int}"/>.</returns>
         public static IEnumerable<int> firstNFibonacciNumbers(int n)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace testproject
         /// <returns>True if <paramref name="n"/> is a Fibonacci number, otherwise false.</returns>
         public static bool isFibNumber(int n)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace testproject
         /// <returns>The sum of all Fibonacci numbers between <paramref name="lower"/> and <paramref name="upper"/>, inclusive.</returns>
         public static int sumSomeFib(int lower, int upper)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace testproject
         /// <returns>The sum of all integers in <paramref name="xs"/>.</returns>
         public static int parallelSum(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>

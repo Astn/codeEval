@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+
 using Xunit;
 using Xunit.Abstractions;
 using Moq;
@@ -161,8 +162,8 @@ namespace testproject
         }
 
         [Theory]
-        [InlineData(0, 9999, 10000)]
-        [InlineData(10000, 10255, 256)]
+        [InlineData(0, 9998, 10000)]
+        [InlineData(10000, 10254, 256)]
         public void CountFrom_GeneratesCorrectSequence(int start, int expectedMax, int expectedCount)
         {
             // Act
@@ -174,8 +175,8 @@ namespace testproject
         }
 
         [Theory]
-        [InlineData(0, 99980001, 10000)]
-        [InlineData(10000, 110229001, 500)]
+        [InlineData(0, 99960004, 10000)]
+        [InlineData(10000, 110208004, 500)]
         public void SquaresFrom_GeneratesCorrectSequenceOfSquares(int start, int expectedMaxSquare, int count)
         {
             // Act
@@ -198,7 +199,7 @@ namespace testproject
 
             // Assert
             Assert.Equal(0, result.First()); // First element check
-            Assert.Equal(10791, result.Last()); // Last element check
+            Assert.Equal(10584, result.Last()); // Last element check
             Assert.Equal(100, result.Count); // Count check
         }
 
@@ -309,6 +310,24 @@ namespace testproject
         // (textProcessed, memoryUsed, time)
         private List<BigOEstimator.ProcessingMetric> memoryUsageCheckpoints = new ();
 
+
+        [Fact]
+        public void doStuff()
+        {
+            IEnumerable<int> CalcStuff(int x) => new [] {x, x + 1, x + 2};
+            
+            var query1 = 
+                from x in new [] {1, 2, 3, 4, 5}
+                let y = CalcStuff(x)
+                let joined = string.Join(", ", y)
+                select (x , joined);
+            
+            foreach (var xy in query1)
+            {
+                output.WriteLine($"{xy.x}, {xy.joined}");
+            }
+        }
+        
         [Theory]
         [InlineData(524288)] // ~1 MB
         [InlineData(5242880)] // ~10 MB

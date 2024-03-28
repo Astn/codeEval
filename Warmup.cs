@@ -12,7 +12,7 @@ namespace testproject
         /// <returns>A string containing "Hello World!".</returns>
         public static string HelloWorld()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace testproject
         /// <returns>The sum of <paramref name="a"/> and <paramref name="b"/>.</returns>
         public static int sum(int a, int b)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace testproject
         /// <returns>The product of <paramref name="a"/> and <paramref name="b"/>.</returns>
         public static int product(int a, int b)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace testproject
         /// <returns>The square of <paramref name="a"/>.</returns>
         public static int square(int a)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -54,17 +54,7 @@ namespace testproject
         /// <returns>The cube of <paramref name="a"/>.</returns>
         public static int cube(int a)
         {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Determines whether an integer is a perfect square.
-        /// </summary>
-        /// <param name="a">The integer to check.</param>
-        /// <returns>True if <paramref name="a"/> is a perfect square, otherwise false.</returns>
-        public static bool isPerfectSquare(int a)
-        {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -76,7 +66,7 @@ namespace testproject
         /// <exception cref="DivideByZeroException">Thrown when <paramref name="b"/> is 0.</exception>
         public static int quotient(int a, int b)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -88,9 +78,19 @@ namespace testproject
         /// <exception cref="DivideByZeroException">Thrown when <paramref name="b"/> is 0.</exception>
         public static int remainder(int a, int b)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Determines whether an integer is a perfect square.
+        /// </summary>
+        /// <param name="a">The integer to check.</param>
+        /// <returns>True if <paramref name="a"/> is a perfect square, otherwise false.</returns>
+        public static bool isPerfectSquare(int a)
+        {
+            throw new NotImplementedException();
+        }
+        
         /// <summary>
         /// Squares each number in a collection.
         /// </summary>
@@ -98,7 +98,7 @@ namespace testproject
         /// <returns>A new list containing the squares of each number in <paramref name="xs"/>.</returns>
         public static List<int> squareAll(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace testproject
         /// <returns>A new list containing the cubes of each number in <paramref name="xs"/>.</returns>
         public static List<int> cubeAll(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace testproject
         /// <returns>The sum of all numbers in <paramref name="xs"/>.</returns>
         public static int sumAll(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace testproject
         /// <returns>A new list containing all numbers in <paramref name="xs"/> in reverse order.</returns>
         public static List<int> reverse(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace testproject
         /// <returns>An infinite sequence of integers starting at <paramref name="x"/>.</returns>
         public static IEnumerable<int> countFrom(int x)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace testproject
         /// <returns>An infinite sequence of squares starting at the square of <paramref name="x"/>.</returns>
         public static IEnumerable<int> squaresFrom(int x)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace testproject
         /// <returns>A new sequence containing the products of corresponding elements from <paramref name="xs"/> and <paramref name="ys"/>.</returns>
         public static IEnumerable<int> productOfStreams(IEnumerable<int> xs, IEnumerable<int> ys)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
