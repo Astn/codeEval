@@ -3,7 +3,8 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using FileChunk = string;
 namespace testproject
 {
     public static class CodeEval1
@@ -70,7 +71,8 @@ namespace testproject
         /// <remarks>
         /// This function is designed to be memory efficient and handle cases where the substring spans multiple chunks.
         /// </remarks>
-        public static bool isTextInStream(IEnumerable<string> chunksFromA10GBfile, string substring)
+       
+        public static bool isTextInStream(IEnumerable<FileChunk> chunksFromA10GBfile, string substring)
         {
             throw new NotImplementedException();
         }

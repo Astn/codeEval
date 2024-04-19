@@ -162,8 +162,8 @@ namespace testproject
         }
 
         [Theory]
-        [InlineData(0, 9998, 10000)]
-        [InlineData(10000, 10254, 256)]
+        [InlineData(0, 9999, 10000)]
+        [InlineData(10000, 10255, 256)]
         public void CountFrom_GeneratesCorrectSequence(int start, int expectedMax, int expectedCount)
         {
             // Act
@@ -175,8 +175,8 @@ namespace testproject
         }
 
         [Theory]
-        [InlineData(0, 99960004, 10000)]
-        [InlineData(10000, 110208004, 500)]
+        [InlineData(0, 99980001, 10000)]
+        [InlineData(10000, 110229001, 500)]
         public void SquaresFrom_GeneratesCorrectSequenceOfSquares(int start, int expectedMaxSquare, int count)
         {
             // Act
@@ -199,7 +199,7 @@ namespace testproject
 
             // Assert
             Assert.Equal(0, result.First()); // First element check
-            Assert.Equal(10584, result.Last()); // Last element check
+            Assert.Equal(10791, result.Last()); // Last element check
             Assert.Equal(100, result.Count); // Count check
         }
 
