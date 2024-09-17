@@ -3,10 +3,11 @@ using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using FileChunk = string;
 namespace testproject
 {
-    public static class Page2
+    public static class CodeEval1
     {
         /// <summary>
         /// Generates an infinite sequence of Fibonacci numbers starting from specified initial values.
@@ -17,7 +18,7 @@ namespace testproject
         /// <returns>An infinite sequence of Fibonacci numbers as <see cref="IEnumerable{int}"/>.</returns>
         public static IEnumerable<int> allFib(int f1, int f2)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace testproject
         /// <returns>A sequence of the first N Fibonacci numbers as <see cref="IEnumerable{int}"/>.</returns>
         public static IEnumerable<int> firstNFibonacciNumbers(int n)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace testproject
         /// <returns>True if <paramref name="n"/> is a Fibonacci number, otherwise false.</returns>
         public static bool isFibNumber(int n)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace testproject
         /// <returns>The sum of all Fibonacci numbers between <paramref name="lower"/> and <paramref name="upper"/>, inclusive.</returns>
         public static int sumSomeFib(int lower, int upper)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace testproject
         /// <returns>The sum of all integers in <paramref name="xs"/>.</returns>
         public static int parallelSum(IEnumerable<int> xs)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -70,7 +71,8 @@ namespace testproject
         /// <remarks>
         /// This function is designed to be memory efficient and handle cases where the substring spans multiple chunks.
         /// </remarks>
-        public static bool isTextInStream(IEnumerable<string> chunksFromA10GBfile, string substring)
+       
+        public static bool isTextInStream(IEnumerable<FileChunk> chunksFromA10GBfile, string substring)
         {
             throw new NotImplementedException();
         }
