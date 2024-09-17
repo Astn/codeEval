@@ -85,7 +85,7 @@ namespace testproject
         /// <remarks>
         /// This method is memory efficient and does not require converting the entire sequence into a List or Array.
         /// </remarks>
-        public static IEnumerable<int> keepFirstNegNumber(IEnumerable<int> xs)
+        public static IEnumerable<int> FilterOutNegativeExceptFirst(IEnumerable<int> xs)
         {
             throw new NotImplementedException();
         }

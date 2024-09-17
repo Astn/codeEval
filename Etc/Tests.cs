@@ -32,7 +32,7 @@ namespace testproject
         [Fact]
         public void _01_HelloWorld_ReturnsCorrectString()
         {
-            Assert.Equal("Hello World!", Page1.HelloWorld());
+            Assert.Equal("Hello World!", Warmup.HelloWorld());
         }
 
         // Verifies the sum function with multiple pairs of inputs.
@@ -43,7 +43,7 @@ namespace testproject
         [InlineData(5, 5, 10)]
         public void _02_Sum_CorrectlyAddsTwoNumbers(int a, int b, int expected)
         {
-            Assert.Equal(expected, Page1.sum(a, b));
+            Assert.Equal(expected, Warmup.sum(a, b));
         }
 
         // Tests the product function with different inputs.
@@ -54,7 +54,7 @@ namespace testproject
         [InlineData(5, 20, 100)]
         public void _03_Product_CorrectlyMultipliesTwoNumbers(int a, int b, int expected)
         {
-            Assert.Equal(expected, Page1.product(a, b));
+            Assert.Equal(expected, Warmup.product(a, b));
         }
 
         // Verifies the square function against known squares.
@@ -65,7 +65,7 @@ namespace testproject
         [InlineData(5, 25)]
         public void _04_Square_ReturnsCorrectSquareOfNumber(int number, int expectedSquare)
         {
-            Assert.Equal(expectedSquare, Page1.square(number));
+            Assert.Equal(expectedSquare, Warmup.square(number));
         }
 
         // Tests the cube function with known cubes.
@@ -76,7 +76,7 @@ namespace testproject
         [InlineData(4, 64)]
         public void _05_Cube_ReturnsCorrectCubeOfNumber(int number, int expectedCube)
         {
-            Assert.Equal(expectedCube, Page1.cube(number));
+            Assert.Equal(expectedCube, Warmup.cube(number));
         }
 
         // Verifies isPerfectSquare with both perfect squares and non-squares.
@@ -89,7 +89,7 @@ namespace testproject
         [InlineData(-25, false)]
         public void _06_IsPerfectSquare_CorrectlyIdentifiesPerfectSquares(int number, bool expectedResult)
         {
-            Assert.Equal(expectedResult, Page1.isPerfectSquare(number));
+            Assert.Equal(expectedResult, Warmup.isPerfectSquare(number));
         }
 
         // Tests quotient calculation with various dividends and divisors.
@@ -100,7 +100,7 @@ namespace testproject
         [InlineData(104, 10, 10)]
         public void _07_Quotient_CorrectlyCalculatesQuotient(int dividend, int divisor, int expectedQuotient)
         {
-            Assert.Equal(expectedQuotient, Page1.quotient(dividend, divisor));
+            Assert.Equal(expectedQuotient, Warmup.quotient(dividend, divisor));
         }
 
         // Verifies the remainder function with multiple test cases.
@@ -111,7 +111,7 @@ namespace testproject
         [InlineData(104, 10, 4)]
         public void _08_Remainder_CorrectlyCalculatesRemainder(int dividend, int divisor, int expectedRemainder)
         {
-            Assert.Equal(expectedRemainder, Page1.remainder(dividend, divisor));
+            Assert.Equal(expectedRemainder, Warmup.remainder(dividend, divisor));
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace testproject
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             var expectedResult = new List<int> { 1, 4, 9, 16, 25 };
-            var result = Page1.squareAll(numbers);
+            var result = Warmup.squareAll(numbers);
             Assert.Equal(expectedResult, result);
         }
 
@@ -128,7 +128,7 @@ namespace testproject
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             var expectedResult = new List<int> { 1, 8, 27, 64, 125 };
-            var result = Page1.cubeAll(numbers);
+            var result = Warmup.cubeAll(numbers);
             Assert.Equal(expectedResult, result);
         }
 
@@ -137,7 +137,7 @@ namespace testproject
         {
             var numbers = new List<int> { 1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 50 };
             var expectedResult = 100;
-            var result = Page1.sumAll(numbers);
+            var result = Warmup.sumAll(numbers);
             Assert.Equal(expectedResult, result);
         }
 
@@ -149,7 +149,7 @@ namespace testproject
             var expectedList = new List<int> { 1, 5, 1, 2, 1, 9, 1, 3 };
 
             // Act
-            var result = Page1.reverse(inputList);
+            var result = Warmup.reverse(inputList);
 
             // Assert
             Assert.Equal(expectedList, result);
@@ -161,7 +161,7 @@ namespace testproject
         public void _13_CountFrom_GeneratesCorrectSequence(int start, int expectedMax, int expectedCount)
         {
             // Act
-            var result = Page1.countFrom(start).Take(expectedCount);
+            var result = Warmup.countFrom(start).Take(expectedCount);
 
             // Assert
             Assert.Equal(expectedCount, result.Count());
@@ -174,7 +174,7 @@ namespace testproject
         public void _14_SquaresFrom_GeneratesCorrectSequenceOfSquares(int start, int expectedMaxSquare, int count)
         {
             // Act
-            var result = Page1.squaresFrom(start).Take(count);
+            var result = Warmup.squaresFrom(start).Take(count);
 
             // Assert
             Assert.Equal(count, result.Count());
@@ -185,11 +185,11 @@ namespace testproject
         public void _15_ProductOfStreams_ReturnsCorrectProductSequence()
         {
             // Arrange
-            var source1 = Page1.countFrom(0).Take(100);
-            var source2 = Page1.countFrom(10).Take(100);
+            var source1 = Warmup.countFrom(0).Take(100);
+            var source2 = Warmup.countFrom(10).Take(100);
 
             // Act
-            var result = Page1.productOfStreams(source1, source2).ToList();
+            var result = Warmup.productOfStreams(source1, source2).ToList();
 
             // Assert
             Assert.Equal(0, result.First()); // First element check
@@ -204,7 +204,7 @@ namespace testproject
             var expectedSequence = "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181";
 
             // Act
-            var result = string.Join(",", Page2.allFib(0, 1).Take(20));
+            var result = string.Join(",", CodeEval1.allFib(0, 1).Take(20));
 
             // Assert
             Assert.Equal(expectedSequence, result);
@@ -220,7 +220,7 @@ namespace testproject
             var expected = expectedSequence.Split(',').Select(int.Parse);
 
             // Act
-            var result = Page2.firstNFibonacciNumbers(n);
+            var result = CodeEval1.firstNFibonacciNumbers(n);
 
             // Assert
             Assert.Equal(expected, result);
@@ -234,7 +234,7 @@ namespace testproject
         public void _18_IsFibNumber_IdentifiesFibonacciNumbersCorrectly(int n, bool expected)
         {
             // Act
-            var result = Page2.isFibNumber(n);
+            var result = CodeEval1.isFibNumber(n);
 
             // Assert
             Assert.Equal(expected, result);
@@ -247,7 +247,7 @@ namespace testproject
         public void _19_SumSomeFib_SumsFibonacciNumbersWithinRangeCorrectly(int lower, int upper, int expectedSum)
         {
             // Act
-            var result = Page2.sumSomeFib(lower, upper);
+            var result = CodeEval1.sumSomeFib(lower, upper);
 
             // Assert
             Assert.Equal(expectedSum, result);
@@ -261,7 +261,7 @@ namespace testproject
             var expected = 50095000;
 
             // Act
-            var result = Page2.parallelSum(source);
+            var result = CodeEval1.parallelSum(source);
 
             // Assert
             Assert.Equal(expected, result);
@@ -275,8 +275,8 @@ namespace testproject
             var chunkSize = 10;
 
             // Act & Assert
-            Assert.True(Page2.isTextInStream(StringToStream(text, chunkSize), "validate the IsTextIn"));
-            Assert.False(Page2.isTextInStream(StringToStream(text, chunkSize), "nonexistent substring"));
+            Assert.True(CodeEval1.isTextInStream(StringToStream(text, chunkSize), "validate the IsTextIn"));
+            Assert.False(CodeEval1.isTextInStream(StringToStream(text, chunkSize), "nonexistent substring"));
         }
 
         [Fact]
@@ -287,7 +287,7 @@ namespace testproject
             var expectedSequence = new List<int> { 5, 2, -3, 9, 10 };
 
             // Act
-            var result = Page2.FilterOutNegativeExceptFirst(inputSequence);
+            var result = CodeEval1.FilterOutNegativeExceptFirst(inputSequence);
 
             // Assert
             Assert.Equal(expectedSequence, result);
@@ -327,7 +327,7 @@ namespace testproject
                 });
 
             // Act
-            var found = Page2.isTextInStream(textStream, pattern);
+            var found = CodeEval1.isTextInStream(textStream, pattern);
             sw.Stop();
             var bigO = new BigOEstimator(output);
             var bigOMemory = bigO.EstimateComplexityMemory(memoryUsageCheckpoints);
