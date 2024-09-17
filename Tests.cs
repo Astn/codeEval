@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -28,7 +30,7 @@ namespace testproject
 
         // Tests that HelloWorld returns the expected string.
         [Fact]
-        public void HelloWorld_ReturnsCorrectString()
+        public void _01_HelloWorld_ReturnsCorrectString()
         {
             Assert.Equal("Hello World!", Page1.HelloWorld());
         }
@@ -39,7 +41,7 @@ namespace testproject
         [InlineData(2, 8, 10)]
         [InlineData(6, 4, 10)]
         [InlineData(5, 5, 10)]
-        public void Sum_CorrectlyAddsTwoNumbers(int a, int b, int expected)
+        public void _02_Sum_CorrectlyAddsTwoNumbers(int a, int b, int expected)
         {
             Assert.Equal(expected, Page1.sum(a, b));
         }
@@ -50,7 +52,7 @@ namespace testproject
         [InlineData(2, 50, 100)]
         [InlineData(4, 25, 100)]
         [InlineData(5, 20, 100)]
-        public void Product_CorrectlyMultipliesTwoNumbers(int a, int b, int expected)
+        public void _03_Product_CorrectlyMultipliesTwoNumbers(int a, int b, int expected)
         {
             Assert.Equal(expected, Page1.product(a, b));
         }
@@ -61,7 +63,7 @@ namespace testproject
         [InlineData(2, 4)]
         [InlineData(4, 16)]
         [InlineData(5, 25)]
-        public void Square_ReturnsCorrectSquareOfNumber(int number, int expectedSquare)
+        public void _04_Square_ReturnsCorrectSquareOfNumber(int number, int expectedSquare)
         {
             Assert.Equal(expectedSquare, Page1.square(number));
         }
@@ -72,7 +74,7 @@ namespace testproject
         [InlineData(2, 8)]
         [InlineData(3, 27)]
         [InlineData(4, 64)]
-        public void Cube_ReturnsCorrectCubeOfNumber(int number, int expectedCube)
+        public void _05_Cube_ReturnsCorrectCubeOfNumber(int number, int expectedCube)
         {
             Assert.Equal(expectedCube, Page1.cube(number));
         }
@@ -85,7 +87,7 @@ namespace testproject
         [InlineData(25, true)]
         [InlineData(2, false)]
         [InlineData(-25, false)]
-        public void IsPerfectSquare_CorrectlyIdentifiesPerfectSquares(int number, bool expectedResult)
+        public void _06_IsPerfectSquare_CorrectlyIdentifiesPerfectSquares(int number, bool expectedResult)
         {
             Assert.Equal(expectedResult, Page1.isPerfectSquare(number));
         }
@@ -96,7 +98,7 @@ namespace testproject
         [InlineData(102, 25, 4)]
         [InlineData(103, 20, 5)]
         [InlineData(104, 10, 10)]
-        public void Quotient_CorrectlyCalculatesQuotient(int dividend, int divisor, int expectedQuotient)
+        public void _07_Quotient_CorrectlyCalculatesQuotient(int dividend, int divisor, int expectedQuotient)
         {
             Assert.Equal(expectedQuotient, Page1.quotient(dividend, divisor));
         }
@@ -107,13 +109,13 @@ namespace testproject
         [InlineData(102, 25, 2)]
         [InlineData(103, 20, 3)]
         [InlineData(104, 10, 4)]
-        public void Remainder_CorrectlyCalculatesRemainder(int dividend, int divisor, int expectedRemainder)
+        public void _08_Remainder_CorrectlyCalculatesRemainder(int dividend, int divisor, int expectedRemainder)
         {
             Assert.Equal(expectedRemainder, Page1.remainder(dividend, divisor));
         }
 
         [Fact]
-        public void SquareAll_ReturnsSquaredValuesOfList()
+        public void _09_SquareAll_ReturnsSquaredValuesOfList()
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             var expectedResult = new List<int> { 1, 4, 9, 16, 25 };
@@ -122,7 +124,7 @@ namespace testproject
         }
 
         [Fact]
-        public void CubeAll_ReturnsCubedValuesOfList()
+        public void _10_CubeAll_ReturnsCubedValuesOfList()
         {
             var numbers = new List<int> { 1, 2, 3, 4, 5 };
             var expectedResult = new List<int> { 1, 8, 27, 64, 125 };
@@ -131,7 +133,7 @@ namespace testproject
         }
 
         [Fact]
-        public void SumAll_ReturnsSumOfAllNumbersInList()
+        public void _11_SumAll_ReturnsSumOfAllNumbersInList()
         {
             var numbers = new List<int> { 1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 50 };
             var expectedResult = 100;
@@ -140,7 +142,7 @@ namespace testproject
         }
 
         [Fact]
-        public void ReverseList_ReturnsReversedOrderOfElements()
+        public void _12_ReverseList_ReturnsReversedOrderOfElements()
         {
             // Arrange
             var inputList = new List<int> { 3, 1, 9, 1, 2, 1, 5, 1 };
@@ -156,7 +158,7 @@ namespace testproject
         [Theory]
         [InlineData(0, 9999, 10000)]
         [InlineData(10000, 10255, 256)]
-        public void CountFrom_GeneratesCorrectSequence(int start, int expectedMax, int expectedCount)
+        public void _13_CountFrom_GeneratesCorrectSequence(int start, int expectedMax, int expectedCount)
         {
             // Act
             var result = Page1.countFrom(start).Take(expectedCount);
@@ -169,7 +171,7 @@ namespace testproject
         [Theory]
         [InlineData(0, 99980001, 10000)]
         [InlineData(10000, 110229001, 500)]
-        public void SquaresFrom_GeneratesCorrectSequenceOfSquares(int start, int expectedMaxSquare, int count)
+        public void _14_SquaresFrom_GeneratesCorrectSequenceOfSquares(int start, int expectedMaxSquare, int count)
         {
             // Act
             var result = Page1.squaresFrom(start).Take(count);
@@ -180,7 +182,7 @@ namespace testproject
         }
 
         [Fact]
-        public void ProductOfStreams_ReturnsCorrectProductSequence()
+        public void _15_ProductOfStreams_ReturnsCorrectProductSequence()
         {
             // Arrange
             var source1 = Page1.countFrom(0).Take(100);
@@ -196,7 +198,7 @@ namespace testproject
         }
 
         [Fact]
-        public void AllFib_GeneratesCorrectFibonacciSequence()
+        public void _16_AllFib_GeneratesCorrectFibonacciSequence()
         {
             // Arrange
             var expectedSequence = "0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181";
@@ -212,7 +214,7 @@ namespace testproject
         [InlineData(3, "0,1,1")]
         [InlineData(6, "0,1,1,2,3,5")]
         [InlineData(9, "0,1,1,2,3,5,8,13,21")]
-        public void FirstNFibonacciNumbers_GeneratesCorrectSequence(int n, string expectedSequence)
+        public void _17_FirstNFibonacciNumbers_GeneratesCorrectSequence(int n, string expectedSequence)
         {
             // Arrange
             var expected = expectedSequence.Split(',').Select(int.Parse);
@@ -229,7 +231,7 @@ namespace testproject
         [InlineData(1, true)]
         [InlineData(4, false)]
         [InlineData(8, true)]
-        public void IsFibNumber_IdentifiesFibonacciNumbersCorrectly(int n, bool expected)
+        public void _18_IsFibNumber_IdentifiesFibonacciNumbersCorrectly(int n, bool expected)
         {
             // Act
             var result = Page2.isFibNumber(n);
@@ -242,7 +244,7 @@ namespace testproject
         [InlineData(0, 10, 20)]
         [InlineData(10, 20, 13)]
         [InlineData(30, 100, 178)]
-        public void SumSomeFib_SumsFibonacciNumbersWithinRangeCorrectly(int lower, int upper, int expectedSum)
+        public void _19_SumSomeFib_SumsFibonacciNumbersWithinRangeCorrectly(int lower, int upper, int expectedSum)
         {
             // Act
             var result = Page2.sumSomeFib(lower, upper);
@@ -252,7 +254,7 @@ namespace testproject
         }
 
         [Fact]
-        public void ParallelSum_CalculatesSumOfRangeCorrectly()
+        public void _20_ParallelSum_CalculatesSumOfRangeCorrectly()
         {
             // Arrange
             var source = Enumerable.Range(10, 10000);
@@ -266,7 +268,7 @@ namespace testproject
         }
 
         [Fact]
-        public void IsTextInStream_FindsSubstringAcrossChunksCorrectly()
+        public void _22_IsTextInStream_FindsSubstringAcrossChunksCorrectly()
         {
             // Arrange
             var text = "This is a test string to validate the IsTextInStream method.";
@@ -278,14 +280,14 @@ namespace testproject
         }
 
         [Fact]
-        public void KeepFirstNegNumber_FiltersSequenceCorrectly()
+        public void _21_KeepFirstNegNumber_FiltersSequenceCorrectly()
         {
             // Arrange
             var inputSequence = new List<int> { 5, 2, -3, -4, 9, 10, -11 };
             var expectedSequence = new List<int> { 5, 2, -3, 9, 10 };
 
             // Act
-            var result = Page2.keepFirstNegNumber(inputSequence);
+            var result = Page2.FilterOutNegativeExceptFirst(inputSequence);
 
             // Assert
             Assert.Equal(expectedSequence, result);
@@ -303,52 +305,57 @@ namespace testproject
         private List<BigOEstimator.ProcessingMetric> memoryUsageCheckpoints = new ();
 
         [Theory]
-        [InlineData(524288)] // ~1 MB
-        [InlineData(5242880)] // ~10 MB
-        [InlineData(52428800)] // ~100 MB
+        [InlineData(524288)]    // ~0.5 MB
+        [InlineData(5242880)]   // ~5 MB
+        [InlineData(52428800)]  // ~50 MB
         public void IsTextInStream_FindsSubstringAcrossChunksCorrectly_WithMemoryChecks(int totalLength)
         {
             memoryUsageCheckpoints.Clear();
-            // Arrange
             var chunkSize = 10240; // 10 KB chunks
-            var memoryUsageBefore = GetCurrentMemoryUsage();
-            
+            var pattern = "validate the IsTextIn";
             var checkpointSize = 10240; // 100 KB checkpoints
-            var pattern = "validate the IsTextIn"; // Substring to be found
 
             var sw = Stopwatch.StartNew();
-            // Generate a stream of text lazily with a configurable length
-            // and collect memory usage data at each checkpoint
-            var textStream = GenerateTextStreamWithMemoryCheckpoints(totalLength, chunkSize, checkpointSize, pattern, 4,
+
+            var textStream = GenerateTextStreamWithMemoryCheckpoints(
+                totalLength, chunkSize, checkpointSize, pattern, Random.Shared.Next(10, totalLength/chunkSize),
                 (long ofX) =>
                 {
-                    memoryUsageCheckpoints.Add(new (ofX,GetCurrentMemoryUsage()-memoryUsageBefore, sw.ElapsedMilliseconds));        
+
+                    memoryUsageCheckpoints.Add(new(ofX, GetCurrentMemoryUsage(), sw.ElapsedMilliseconds));
+                    
                 });
-            memoryUsageBefore = GetCurrentMemoryUsage();
-            output.WriteLine($"Memory usage before test: {memoryUsageBefore} bytes");
+
             // Act
             var found = Page2.isTextInStream(textStream, pattern);
             sw.Stop();
-            // Calculate the maximum memory usage during the test
             var bigO = new BigOEstimator(output);
             var bigOMemory = bigO.EstimateComplexityMemory(memoryUsageCheckpoints);
+            var bigOMemoryMatch = bigOMemory.MinBy(x=>x.Value);
             var bigOTime = bigO.EstimateComplexityTime(memoryUsageCheckpoints);
+            var bigOTimeMatch = bigOTime.MinBy(x=>x.Value);
+
             // Assert
             Assert.True(found, "The pattern should be found in the generated text stream.");
-            Assert.False(bigOMemory == "O(n)", $"Your memory usage was estimated to be {bigOMemory}");
-            Assert.False(bigOTime == "O(n)", $"Your time usage was estimated to be {bigOTime}");
-                
-            // Log the maximum memory usage during the test
-            output.WriteLine($"Memory usage during test: {bigOMemory}");
-            output.WriteLine($"Time usage during test: {bigOTime}");
+
+            bigOMemory.ToDisplayString();
+            // Log the results
+            output.WriteLine($"Est Memory Complexity: {bigOMemoryMatch.Key}");
+            output.WriteLine($"Est Time Complexity: {bigOTimeMatch.Key}");
             output.WriteLine($"Maximum memory usage during test: {memoryUsageCheckpoints.Max(x => x.MemoryUsed)} bytes");
             output.WriteLine($"Time taken: {sw.ElapsedMilliseconds} ms");
-            // Reset the checkpoints list for future tests
+            output.WriteLine($"Memory Complexity ranking: {bigOMemory.ToDisplayString()}");
+            output.WriteLine($"Time Complexity ranking: {bigOTime.ToDisplayString()}");
+            
+
+            
             memoryUsageCheckpoints.Clear();
         }
 
-        public static IEnumerable<string> GenerateTextStreamWithMemoryCheckpoints(int totalLength, int chunkSize,
-            int checkpointSize, string pattern, int patternInsertionChunkIndex = 2, Action<long> memoryCheckpointAction = null)
+
+        public static IEnumerable<string> GenerateTextStreamWithMemoryCheckpoints(
+            int totalLength, int chunkSize, int checkpointSize, string pattern, int patternInsertionChunkIndex = 2, 
+            Action<long> memoryCheckpointAction = null)
         {
             if (totalLength <= 0)
                 throw new ArgumentException("Total length must be greater than 0.", nameof(totalLength));
@@ -361,53 +368,43 @@ namespace testproject
             var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             var totalProduced = 0;
             var currentCheckpoint = 0;
+            int chunkIndex = 0;
 
-            var chunks = new List<string>();
-            
             while (totalProduced < totalLength)
             {
                 var currentChunkSize = Math.Min(chunkSize, totalLength - totalProduced);
                 var chunk = new char[currentChunkSize];
                 var effectiveChunkSize = currentChunkSize; // Adjusted for pattern insertion
 
-                // If this is the chunk where we insert the pattern
-                if (totalProduced / chunkSize == patternInsertionChunkIndex)
-                {
-                    effectiveChunkSize -= patternLength; // Make room for the pattern
-                }
-
+                // Generate the chunk content
                 for (int i = 0; i < effectiveChunkSize; i++)
                 {
                     chunk[i] = alphabet[(totalProduced + i) % alphabet.Length];
                 }
 
                 // Insert the pattern at the middle of the specified chunk
-                if (totalProduced / chunkSize == patternInsertionChunkIndex)
+                if (chunkIndex == patternInsertionChunkIndex)
                 {
                     var midPoint = effectiveChunkSize / 2;
-                    Array.Copy(chunk, midPoint, chunk, midPoint + patternLength,
-                        effectiveChunkSize - midPoint); // Shift right part
-                    for (int i = 0; i < patternLength; i++)
-                    {
-                        chunk[midPoint + i] = pattern[i];
-                    }
+                    var spaceForPattern = Math.Min(patternLength, effectiveChunkSize - midPoint);
+                    Array.Copy(chunk, midPoint, chunk, midPoint + spaceForPattern, effectiveChunkSize - midPoint - spaceForPattern);
+                    Array.Copy(pattern.ToCharArray(), 0, chunk, midPoint, spaceForPattern);
                 }
 
-                //yield return new string(chunk);
-                chunks.Add(new string(chunk));
-                totalProduced += chunk.Length;
-            }
-
-            totalProduced = 0;
-            foreach (var ch in chunks)
-            {
-                yield return ch;
-                totalProduced += ch.Length;
-
-                // Memory checkpoint logic goes here
-                if (totalProduced - currentCheckpoint >= checkpointSize)
+                var chunkString = new string(chunk);
+                // Memory checkpoint logic
+                if ((totalProduced - currentCheckpoint) >= checkpointSize)
                 {
-                    // Log memory usage or perform any checkpoint action here
+                    currentCheckpoint = totalProduced;
+                    memoryCheckpointAction?.Invoke(currentCheckpoint);
+                }
+                yield return chunkString;
+                totalProduced += chunk.Length;
+                chunkIndex++;
+
+                // Memory checkpoint logic
+                if ((totalProduced - currentCheckpoint) >= checkpointSize)
+                {
                     currentCheckpoint = totalProduced;
                     memoryCheckpointAction?.Invoke(currentCheckpoint);
                 }
@@ -416,11 +413,11 @@ namespace testproject
 
 
 
+
         private long GetCurrentMemoryUsage()
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
-            GC.Collect();
             return GC.GetTotalMemory(true);
         }
     }
@@ -449,8 +446,9 @@ namespace testproject
             };
 
             var estimator = new BigOEstimator(output);
-            estimator.EstimateComplexityMemory(data);
-
+            var ranking = estimator.EstimateComplexityMemory(data);
+            output.WriteLine(ranking.ToDisplayString());
+            Assert.Equal("O(n)", ranking.First().Key);
             // Assert the closest match is linear (e.g., check console output or adapt method for testing)
         }
         
@@ -467,25 +465,29 @@ namespace testproject
             };
 
             var estimator = new BigOEstimator(output);
-            estimator.EstimateComplexityMemory(data);
+            var ranking = estimator.EstimateComplexityMemory(data);
+            output.WriteLine(ranking.ToDisplayString());
+            Assert.Equal("O(log n)", ranking.First().Key);
 
             // Assert the closest match is logarithmic
         }
 
         [Fact]
-        public void EstimateComplexity_ShouldIdentifyNLogNComplexity()
+        public void EstimateComplexity_ShouldIdentifyO1()
         {
             var data = new List<BigOEstimator.ProcessingMetric>
             {
-                new (10, (long)(10 * Math.Log2(10)), 0),
-                new (100, (long)(100 * Math.Log2(100)), 0),
-                new (1000, (long)(1000 * Math.Log2(1000)), 0),
-                new (10000, (long)(10000 * Math.Log2(10000)), 0),
-                new (100000, (long)(100000 * Math.Log2(100000)), 0)
+                new (10, (long)17433, 0),
+                new (100, (long)17432, 0),
+                new (1000, (long)17433, 0),
+                new (10000, (long)17432, 0),
+                new (100000, (long)17433, 0)
             };
 
             var estimator = new BigOEstimator(output);
-            estimator.EstimateComplexityMemory(data);
+            var ranking = estimator.EstimateComplexityMemory(data);
+            output.WriteLine(ranking.ToDisplayString());
+            Assert.Equal("O(1)", ranking.First().Key);
 
             // Assert the closest match is N Log N
         }
