@@ -87,7 +87,7 @@ namespace testproject
         [InlineData(25, true)]
         [InlineData(2, false)]
         [InlineData(-25, false)]
-        public void _06_IsPerfectSquare_CorrectlyIdentifiesPerfectSquares(int number, bool expectedResult)
+        public void _08_IsPerfectSquare_CorrectlyIdentifiesPerfectSquares(int number, bool expectedResult)
         {
             Assert.Equal(expectedResult, Warmup.isPerfectSquare(number));
         }
@@ -98,7 +98,7 @@ namespace testproject
         [InlineData(102, 25, 4)]
         [InlineData(103, 20, 5)]
         [InlineData(104, 10, 10)]
-        public void _07_Quotient_CorrectlyCalculatesQuotient(int dividend, int divisor, int expectedQuotient)
+        public void _06_Quotient_CorrectlyCalculatesQuotient(int dividend, int divisor, int expectedQuotient)
         {
             Assert.Equal(expectedQuotient, Warmup.quotient(dividend, divisor));
         }
@@ -109,7 +109,7 @@ namespace testproject
         [InlineData(102, 25, 2)]
         [InlineData(103, 20, 3)]
         [InlineData(104, 10, 4)]
-        public void _08_Remainder_CorrectlyCalculatesRemainder(int dividend, int divisor, int expectedRemainder)
+        public void _07_Remainder_CorrectlyCalculatesRemainder(int dividend, int divisor, int expectedRemainder)
         {
             Assert.Equal(expectedRemainder, Warmup.remainder(dividend, divisor));
         }
